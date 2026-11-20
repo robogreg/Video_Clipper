@@ -3,6 +3,7 @@
   "productName": "Video Clipper",
   "version": "1.0.0",
   "description": "Open a video, trim it, save it. Nothing else.",
+  "license": "MIT",
   "main": "main.js",
   "scripts": {
     "start": "electron .",

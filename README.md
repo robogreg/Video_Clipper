@@ -15,7 +15,13 @@ Trimming a video used to be a thirty-second job. Now the tools that do it are pa
 
 The original file is never modified, and the app refuses to save over it.
 
-## Getting started
+## Download
+
+Grab `Video-Clipper-win64.zip` from the [latest release](https://github.com/robogreg/Video_Clipper/releases/latest), unzip it anywhere, and run `Video Clipper.exe`. No install needed.
+
+Windows may show a SmartScreen warning the first time because the app isn't code-signed. Click **More info**, then **Run anyway**.
+
+## Build from source
 
 You need [Node.js](https://nodejs.org) 20 or newer. ffmpeg is downloaded automatically as a dependency, so there is nothing else to install.
 
@@ -84,6 +90,8 @@ HEVC preview depends on hardware decoding support on your PC.
 
 ffmpeg comes from the [`ffmpeg-static`](https://www.npmjs.com/package/ffmpeg-static) package. The export is a single ffmpeg command: a stream copy in Fast mode, or a re-encode with the source codec in Exact mode.
 
-## Credits
+## License
 
-Built with [Electron](https://www.electronjs.org) and [FFmpeg](https://ffmpeg.org). FFmpeg is a separate program under its own license; see the `ffmpeg-static` package for details.
+Video Clipper's own code is released under the [MIT License](LICENSE).
+
+It is built with [Electron](https://www.electronjs.org) and [FFmpeg](https://ffmpeg.org). FFmpeg is a separate program under its own license (GPL for the build bundled here); see the `ffmpeg-static` package for details.
