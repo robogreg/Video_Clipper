@@ -1,0 +1,18 @@
+{
+  "name": "video-clipper",
+  "productName": "Video Clipper",
+  "version": "1.0.0",
+  "description": "Open a video, trim it, save it. Nothing else.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager . \"Video Clipper\" --platform=win32 --arch=x64 --out=dist --overwrite --ignore=\"^/dist\" --ignore=\"^/\\.claude\""
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0"
+  },
+  "devDependencies": {
+    "@electron/packager": "^18.3.6",
+    "electron": "^39.0.0"
+  }
+}

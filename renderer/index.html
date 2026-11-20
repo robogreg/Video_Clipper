@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; media-src 'self' file:; img-src 'self' data:">
+  <title>Video Clipper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <button id="openBtn" class="btn">Open…</button>
+    <div id="fileName">No video open</div>
+    <div id="fileInfo"></div>
+  </header>
+
+  <main id="stage">
+    <div id="empty">
+      <div class="emptyTitle">Open a video to trim</div>
+      <div class="emptySub">Click <b>Open…</b> or drop a file here</div>
+    </div>
+    <video id="video" hidden></video>
+    <div id="previewError" hidden>
+      This video’s codec can’t be previewed here, so it can’t be trimmed in this tool.
+    </div>
+  </main>
+
+  <footer id="editor" class="disabled">
+    <div id="timelineWrap">
+      <div id="track">
+        <canvas id="strip"></canvas>
+        <div id="dimL" class="dim"></div>
+        <div id="dimR" class="dim"></div>
+        <div id="sel">
+          <div class="handle l"><span></span></div>
+          <div class="handle r"><span></span></div>
+        </div>
+        <div id="playhead"></div>
+      </div>
+    </div>
+
+    <div id="controls">
+      <div class="group">
+        <button id="playBtn" class="btn round" title="Play / pause (Space)">▶</button>
+        <div id="curTime" class="mono">0:00.00</div>
+      </div>
+      <div class="group">
+        <button id="setStart" class="btn" title="Set trim start at playhead (I)">Set start</button>
+        <button id="setEnd" class="btn" title="Set trim end at playhead (O)">Set end</button>
+        <div id="range" class="mono"></div>
+      </div>
+      <div class="group">
+        <label id="fastLabel" title="Copies the video without re-encoding: instant and zero quality loss, but the start may land up to a few seconds early (on the nearest keyframe).">
+          <input type="checkbox" id="fast"> Fast (no re-encode)
+        </label>
+        <button id="exportBtn" class="btn primary">Trim &amp; Save…</button>
+      </div>
+    </div>
+  </footer>
+
+  <video id="thumbVideo" muted preload="auto"></video>
+
+  <div id="overlay" hidden>
+    <div id="dialog">
+      <div id="dlgTitle">Saving…</div>
+      <div id="barWrap"><div id="bar"></div></div>
+      <pre id="dlgMsg"></pre>
+      <div id="dlgBtns">
+        <button id="dlgCancel" class="btn">Cancel</button>
+        <button id="dlgShow" class="btn" hidden>Show in folder</button>
+        <button id="dlgClose" class="btn primary" hidden>Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
